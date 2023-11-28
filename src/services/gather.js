@@ -5,7 +5,8 @@ import ffmpegPath from 'ffmpeg-static';
 
 const directoryPath = "./data"
 
-fs.promises.readdir(directoryPath)
+function gatherFile(){
+  fs.promises.readdir(directoryPath)
   .then((files) => {
     files.forEach((file) => {
       if (file.endsWith('.mp4') && file.includes('-audio.mp4')) {
@@ -51,3 +52,6 @@ fs.promises.readdir(directoryPath)
   .catch((err) => {
     console.error('Erro ao ler o diretório:', err);
   });
+}
+
+gatherFile();
